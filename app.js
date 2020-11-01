@@ -7,7 +7,10 @@ var app = express();
 app.use(bodyParser.json());
 
 var db = null
-MongoClient.connect('mongodb://root00:root00@ds263172.mlab.com:63172/hatershub', function(err,database) {
+MongoClient.connect('mongodb+srv://symptom00:tango1818@cluster0.vfufp.mongodb.net/hatershub-db?retryWrites=true&w=majority', function(err,database) {
+	if (err) {
+    	console.error('An error occurred connecting to MongoDB: ', err);
+    }
     db = database.db('hatershub');
 });
 /*MongoClient.connect('mongodb+srv://admin:admin@cluster0-5vple.mongodb.net/test?retryWrites=true&w=majority', function(err,database) {
@@ -16,7 +19,7 @@ MongoClient.connect('mongodb://root00:root00@ds263172.mlab.com:63172/hatershub',
 
 app.get('/', function(req, res) {
     res.setHeader('Content-Type', 'text/plain');
-    res.send('Bienvenue sur MICROCOSMOS');
+    res.send('Bienvenue sur HATERSHUB');
 });
 
 
@@ -31,3 +34,4 @@ app.get('/comment/get/:id', (req, res) => {
 
 
 app.listen(process.env.PORT || 3000);
+
