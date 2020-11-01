@@ -28,7 +28,7 @@ app.get('/', function(req, res) {
 
 app.get('/comment/get/:id', (req, res) => {
 	var id = req.params.id;
-    db.collection('comment').findOne({ _id : ObjectId(id) }, function(err, results) {
+    db.collection('comment').findOne({ id : id }, function(err, results) {
 		res.send(results);
 	});
 });
