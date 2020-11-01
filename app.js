@@ -19,8 +19,6 @@ app.get('/', function(req, res) {
     res.send('Bienvenue sur HATERSHUB');
 });
 
-
-
 app.get('/comment/get/:id', (req, res) => {
 	var id = req.params.id;
     db.collection('comment').find({ id : id }).toArray(function(err, results) {
@@ -28,6 +26,11 @@ app.get('/comment/get/:id', (req, res) => {
 	});
 });
 
+app.post('/comment/insert', (req, res) => {
+	req.body.date = new Date().toISOString()
+	db.collection('comment').insertOne(req.body);
+	res.send({"success" : true});
+});
 
 
 app.listen(process.env.PORT || 3000);
