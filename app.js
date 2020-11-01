@@ -7,11 +7,13 @@ var app = express();
 app.use(bodyParser.json());
 
 var db = null
-MongoClient.connect('mongodb+srv://symptom00:tango1818@cluster0.vfufp.mongodb.net/hatershub-db?retryWrites=true&w=majority', function(err,database) {
+MongoClient.connect('mongodb+srv://symptom00:VN1RNRYWPu23Jx7R@cluster0.vfufp.mongodb.net/hatershub-db?retryWrites=true&w=majority', function(err,database) {
 	if (err) {
     	console.error('An error occurred connecting to MongoDB: ', err);
     }
-    db = database.db('hatershub');
+    db = database.db('hatershub-db');
+
+    app.get('/')
 });
 /*MongoClient.connect('mongodb+srv://admin:admin@cluster0-5vple.mongodb.net/test?retryWrites=true&w=majority', function(err,database) {
     db = database.db('microcosmos-db');
