@@ -11,12 +11,12 @@ MongoClient.connect('mongodb+srv://symptom00:VN1RNRYWPu23Jx7R@cluster0.vfufp.mon
 	if (err) {
     	console.error('An error occurred connecting to MongoDB: ', err);
     }
-    db = database.db('hatershub-db');
+    db = database.db('hatersclub-db');
 });
 
 app.get('/', function(req, res) {
     res.setHeader('Content-Type', 'text/plain');
-    res.send('Bienvenue sur HATERSHUB');
+    res.send('Bienvenue sur HATERSCLUB');
 });
 
 app.get('/comment/get/:id', (req, res) => {
