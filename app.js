@@ -19,9 +19,9 @@ app.get('/', function(req, res) {
     res.send('Bienvenue sur HATERSCLUB');
 });
 
-app.get('/comment/get/:id', (req, res) => {
-	var id = req.params.id;
-    db.collection('comment').find({ id : id }).toArray(function(err, results) {
+app.get('/comment/get/:numberplate', (req, res) => {
+	var numberplate = req.params.numberplate;
+    db.collection('comment').find({ numberplate : numberplate }).toArray(function(err, results) {
 		res.send(results);
 	});
 });
